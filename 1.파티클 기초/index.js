@@ -1,5 +1,5 @@
-import { Animate, Particle, DatGUI } from './class/index.js';
-import { Common } from '../0.common/common.js';
+import { Particle, DatGUI } from './class/index.js';
+import { Animate, Common } from '../0.common/index.js';
 
 Common.init();
 
@@ -20,7 +20,14 @@ window.addEventListener('load', () => {
         alphaOffset : -23,
     });
     const fps = 60;
-    const animate = new Animate(1000/fps)
+    const animate = new Animate(1000/fps, () => {
+        Common.ctx.clearRect(0, 0, Common.canvasWidth, Common.canvasHeight)
+        Particle.get().forEach(particle => {
+            particle.update();
+            particle.draw();
+        })
+       
+    })
     animate.start();
 })
 

@@ -1,26 +1,20 @@
-import {  Particle } from './index.js';
-import { Common } from '../../0.common/common.js';
+import { Common } from './common.js';
 
 export class Animate {
     
-    constructor(interval) {
+    constructor(interval, exec) {
         this.interval = interval;
         this.beforTime = Date.now();
+        this.exec = exec;
     }
 
     start() {
         window.requestAnimationFrame(this.start.bind(this));
         const now = Date.now();
         const passedTime = now - this.beforTime;
-        const particles = Particle.get();
         if(passedTime< this.interval) return; 
-
-        Common.ctx.clearRect(0, 0, Common.canvasWidth, Common.canvasHeight)
-        particles.forEach(particle => {
-            particle.update();
-            particle.draw();
-        })
-       
+        
+        this.exec();
         this.beforTime = now - (passedTime % this.interval)
     }
 }
