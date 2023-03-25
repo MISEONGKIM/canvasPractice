@@ -46,7 +46,7 @@ class Particle {
         ctx.beginPath()
         //Math.PI /180이  1도를 뜻함.
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI / 180 * 360)
-        ctx.fillStyle = `rgba(${Particle.randomNumBetween(0,255)},${Particle.randomNumBetween(0,255)},${Particle.randomNumBetween(0,255)})`;
+        ctx.fillStyle = `#8977ad`;
         ctx.fill();
         ctx.closePath();
     }
@@ -77,7 +77,7 @@ class Animate {
     }
 }
 const fps = 60;
-const particles = Array.from({length : canvasWidth / 10}, (v, i)=> i).map(d => new Particle(
+const particles = Array.from({length : canvasWidth / 50}, (v, i)=> i).map(d => new Particle(
     Particle.randomNumBetween(0, canvasWidth),
     Particle.randomNumBetween(0, canvasHeight),
     Particle.randomNumBetween(50, 100),

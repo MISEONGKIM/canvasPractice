@@ -19,7 +19,8 @@
                 overflow : hidden;
             }
             canvas {
-                background-color: white;
+                /* background-color: white; */
+                filter : url('#gooey')
             }
         </style>
     </head>
@@ -28,6 +29,14 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <canvas></canvas>
+        <svg>
+            <defs>
+                <filter id="gooey">
+                    <feGaussianBlur stdDeviation = '40' in="SourceGraphic" result="blur1" />
+                    <feColorMatrix in="blur1" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 100 -23" />
+                </filter>
+            </defs>
+        </svg>
         <script  type= 'module' src="./index.js"></script>
     </body>
 </html>
