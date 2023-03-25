@@ -1,4 +1,4 @@
-import { canvasHeight, canvasWidth, ctx } from "../index.js";
+import { Common } from "./index.js";
 export class Particle {
     constructor(x, y, radius, vy) {
         this.x = x;
@@ -8,14 +8,20 @@ export class Particle {
         this.acc = 1.03 
     }
 
-     static randomNumBetween (min, max)  {
+    static randomNumBetween (min, max)  {
         return Math.random() * (max - min + 1) + min
-      }
+    }
+    static set(array) {
+        this.particles = array
+    }
+    static get() {
+        return this.particles;
+    }
 
     update() {
-        if(this.y - this.radius > canvasHeight) {
+        if(this.y - this.radius > Common.canvasHeight) {
             this.y = 0;
-            this.x = Particle.randomNumBetween(0, canvasWidth)
+            this.x = Particle.randomNumBetween(0, Common.canvasWidth)
             this.radius = Particle.randomNumBetween(50, 100)
             this.vy = Particle.randomNumBetween(1, 5)
             return;
@@ -25,11 +31,11 @@ export class Particle {
     }
 
     draw() {
-        ctx.beginPath()
+        Common.ctx.beginPath()
         //Math.PI /180이  1도를 뜻함.
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI / 180 * 360)
-        ctx.fillStyle = `#8977ad`;
-        ctx.fill();
-        ctx.closePath();
+        Common.ctx.arc(this.x, this.y, this.radius, 0, Math.PI / 180 * 360)
+        Common.ctx.fillStyle = `#8977ad`;
+        Common.ctx.fill();
+        Common.ctx.closePath();
     }
 }

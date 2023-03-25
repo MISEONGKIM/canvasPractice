@@ -1,3 +1,4 @@
+import { Particle } from './index.js';
 
 export class DatGUI {
     static init({blurValue, alphaChannel, alphaOffset, particles}) {
@@ -23,7 +24,7 @@ export class DatGUI {
         const f2 = gui.addFolder('Particle Property');
         f2.open()
         f2.add(controls, 'acc', 1, 1.5, 0.01).onChange((value) => {
-            particles.forEach(particle => particle.acc = value)
+            Particle.get().forEach(particle => particle.acc = value)
         });
     }
 
