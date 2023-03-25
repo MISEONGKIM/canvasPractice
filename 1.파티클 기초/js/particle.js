@@ -1,4 +1,4 @@
-import { CavasOption } from '../../0.Common/canvasOption.js';
+import { CavasOption } from '../../0.common/canvasOption.js';
 import {randomNumBetween} from '../../0.common/utils.js';
 
 export class Particle {
