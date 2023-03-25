@@ -1,12 +1,12 @@
-import { Particle, DatGUI } from './class/index.js';
+import { Particle, DatGUI } from './js/index.js';
 import { Animate, CavasOption } from '../0.Common/index.js';
-
+import {randomNumBetween} from '../0.common/utils.js';
 const createParticles = () => {
     Particle.set(Array.from({length : CavasOption.canvasWidth / 50}, (v, i)=> i).map(d => new Particle(
-        Particle.randomNumBetween(0, CavasOption.canvasWidth),
-        Particle.randomNumBetween(0, CavasOption.canvasHeight),
-        Particle.randomNumBetween(50, 100),
-        Particle.randomNumBetween(1, 5)
+        randomNumBetween(0, CavasOption.canvasWidth),
+        randomNumBetween(0, CavasOption.canvasHeight),
+        randomNumBetween(50, 100),
+        randomNumBetween(1, 5)
     )));
 }
 

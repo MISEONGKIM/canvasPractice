@@ -1,4 +1,5 @@
 import { CavasOption } from '../../0.Common/canvasOption.js';
+import {randomNumBetween} from '../../0.common/utils.js';
 
 export class Particle {
     constructor(x, y, radius, vy) {
@@ -9,9 +10,6 @@ export class Particle {
         this.acc = 1.03 
     }
 
-    static randomNumBetween (min, max)  {
-        return Math.random() * (max - min + 1) + min
-    }
     static set(array) {
         this.particles = array
     }
@@ -22,9 +20,9 @@ export class Particle {
     update() {
         if(this.y - this.radius > CavasOption.canvasHeight) {
             this.y = 0;
-            this.x = Particle.randomNumBetween(0, CavasOption.canvasWidth)
-            this.radius = Particle.randomNumBetween(50, 100)
-            this.vy = Particle.randomNumBetween(1, 5)
+            this.x = randomNumBetween(0, CavasOption.canvasWidth)
+            this.radius = randomNumBetween(50, 100)
+            this.vy = randomNumBetween(1, 5)
             return;
         }
         this.vy *= this.acc;
