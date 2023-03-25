@@ -1,4 +1,4 @@
-import { Common } from '../../0.common/common.js';
+import { CavasOption } from '../../0.Common/canvasOption.js';
 
 export class Particle {
     constructor(x, y, radius, vy) {
@@ -20,9 +20,9 @@ export class Particle {
     }
 
     update() {
-        if(this.y - this.radius > Common.canvasHeight) {
+        if(this.y - this.radius > CavasOption.canvasHeight) {
             this.y = 0;
-            this.x = Particle.randomNumBetween(0, Common.canvasWidth)
+            this.x = Particle.randomNumBetween(0, CavasOption.canvasWidth)
             this.radius = Particle.randomNumBetween(50, 100)
             this.vy = Particle.randomNumBetween(1, 5)
             return;
@@ -32,11 +32,11 @@ export class Particle {
     }
 
     draw() {
-        Common.ctx.beginPath()
+        CavasOption.ctx.beginPath()
         //Math.PI /180이  1도를 뜻함.
-        Common.ctx.arc(this.x, this.y, this.radius, 0, Math.PI / 180 * 360)
-        Common.ctx.fillStyle = `#8977ad`;
-        Common.ctx.fill();
-        Common.ctx.closePath();
+        CavasOption.ctx.arc(this.x, this.y, this.radius, 0, Math.PI / 180 * 360)
+        CavasOption.ctx.fillStyle = `#8977ad`;
+        CavasOption.ctx.fill();
+        CavasOption.ctx.closePath();
     }
 }

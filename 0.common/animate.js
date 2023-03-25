@@ -1,9 +1,7 @@
-import { Common } from './common.js';
-
 export class Animate {
-    
-    constructor(interval, exec) {
-        this.interval = interval;
+    constructor(exec) {
+        const fps = 60;
+        this.interval = 1000/fps;
         this.beforTime = Date.now();
         this.exec = exec;
     }

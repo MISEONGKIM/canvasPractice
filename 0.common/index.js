@@ -1,2 +1,2 @@
 export * from './animate.js';
-export * from './common.js';
+export * from './canvasOption.js';
