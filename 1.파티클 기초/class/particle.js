@@ -1,4 +1,5 @@
-import { Common } from "./index.js";
+import { Common } from '../../0.common/common.js';
+
 export class Particle {
     constructor(x, y, radius, vy) {
         this.x = x;

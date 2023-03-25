@@ -1,4 +1,6 @@
-import { Animate, Common, Particle, DatGUI } from './class/index.js';
+import { Animate, Particle, DatGUI } from './class/index.js';
+import { Common } from '../0.common/common.js';
+
 Common.init();
 
 const createParticles = () => {

@@ -1,4 +1,5 @@
-import { Common, Particle } from './index.js';
+import {  Particle } from './index.js';
+import { Common } from '../../0.common/common.js';
 
 export class Animate {
     
