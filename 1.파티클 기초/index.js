@@ -1,17 +1,17 @@
 import { Particle, DatGUI } from './js/index.js';
-import { Animate, CavasOption } from '../0.Common/index.js';
+import { Animate, CanvasOption } from '../0.Common/index.js';
 import {randomNumBetween} from '../0.common/utils.js';
 const createParticles = () => {
-    Particle.set(Array.from({length : CavasOption.canvasWidth / 50}, (v, i)=> i).map(d => new Particle(
-        randomNumBetween(0, CavasOption.canvasWidth),
-        randomNumBetween(0, CavasOption.canvasHeight),
+    Particle.set(Array.from({length : CanvasOption.canvasWidth / 50}, (v, i)=> i).map(d => new Particle(
+        randomNumBetween(0, CanvasOption.canvasWidth),
+        randomNumBetween(0, CanvasOption.canvasHeight),
         randomNumBetween(50, 100),
         randomNumBetween(1, 5)
     )));
 }
 
 window.addEventListener('load', () => {
-    CavasOption.init();
+    CanvasOption.init();
     createParticles();
     DatGUI.init({
         blurValue : 40,
@@ -19,7 +19,7 @@ window.addEventListener('load', () => {
         alphaOffset : -23,
     });
     const animate = new Animate(() => {
-        CavasOption.ctx.clearRect(0, 0, CavasOption.canvasWidth, CavasOption.canvasHeight)
+        CanvasOption.ctx.clearRect(0, 0, CanvasOption.canvasWidth, CanvasOption.canvasHeight)
         Particle.get().forEach(particle => {
             particle.update();
             particle.draw();
@@ -30,6 +30,6 @@ window.addEventListener('load', () => {
 })
 
 window.addEventListener('resize', () => {
-    CavasOption.resize(innerHeight, innerWidth);
+    CanvasOption.resize(innerHeight, innerWidth);
     createParticles();
 })

@@ -1,4 +1,4 @@
-import { CavasOption } from '../../0.common/canvasOption.js';
+import { CanvasOption } from '../../0.common/canvasOption.js';
 import {randomNumBetween} from '../../0.common/utils.js';
 
 export class Particle {
@@ -18,9 +18,9 @@ export class Particle {
     }
 
     update() {
-        if(this.y - this.radius > CavasOption.canvasHeight) {
+        if(this.y - this.radius > CanvasOption.canvasHeight) {
             this.y = 0;
-            this.x = randomNumBetween(0, CavasOption.canvasWidth)
+            this.x = randomNumBetween(0, CanvasOption.canvasWidth)
             this.radius = randomNumBetween(50, 100)
             this.vy = randomNumBetween(1, 5)
             return;
@@ -30,11 +30,11 @@ export class Particle {
     }
 
     draw() {
-        CavasOption.ctx.beginPath()
+        CanvasOption.ctx.beginPath()
         //Math.PI /180이  1도를 뜻함.
-        CavasOption.ctx.arc(this.x, this.y, this.radius, 0, Math.PI / 180 * 360)
-        CavasOption.ctx.fillStyle = `#8977ad`;
-        CavasOption.ctx.fill();
-        CavasOption.ctx.closePath();
+        CanvasOption.ctx.arc(this.x, this.y, this.radius, 0, Math.PI / 180 * 360)
+        CanvasOption.ctx.fillStyle = `#8977ad`;
+        CanvasOption.ctx.fill();
+        CanvasOption.ctx.closePath();
     }
 }

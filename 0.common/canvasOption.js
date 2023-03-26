@@ -1,4 +1,4 @@
-export class CavasOption {
+export class CanvasOption {
     static init() {
         this.canvas = document.querySelector('canvas');
         //context는 그리게 될 도구 
